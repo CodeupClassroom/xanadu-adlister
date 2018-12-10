@@ -14,13 +14,13 @@
 
 <%
 
-    request.setAttribute("lactoseIntolerant", false);
+    request.setAttribute("lactoseIntolerant", true);
 
 
     List<String> dairyProducts = new ArrayList<>();
     dairyProducts.add("Yogurt");
     dairyProducts.add("Milk");
-    dairyProducts.add("Chedder");
+    dairyProducts.add("Cheddar");
     dairyProducts.add("Cottage Cheese");
     dairyProducts.add("Queso");
     request.setAttribute("dairyProducts", dairyProducts);
@@ -28,7 +28,7 @@
 
     request.setAttribute("mainMessage", "JSTL Lecture");
 
-    request.setAttribute("isAdmin", false);
+    request.setAttribute("isAdmin", true);
 
     request.setAttribute("age", 20);
 
@@ -83,7 +83,7 @@
         <c:when test="${param.color.equals(\"red\")}">
             <p style="color:red">RED!</p>
         </c:when>
-        <c:when test="${param.color.equals(\"red\")}">
+        <c:when test="${param.color.equals(\"yellow\")}">
             <p style="color:yellow">YELLOW!</p>
         </c:when>
 

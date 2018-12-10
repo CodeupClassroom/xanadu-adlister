@@ -20,7 +20,8 @@ public class JspTestServlet extends HttpServlet {
 //        request.getRequestDispatcher("include1.jsp").forward(request, response);
 //        request.getRequestDispatcher("include2.jsp").forward(request, response);
 //        request.getRequestDispatcher("implicit.jsp").forward(request, response);
-        request.getRequestDispatcher("el.jsp").forward(request, response);
-//        request.getRequestDispatcher("jstl.jsp").forward(request, response);
+//        request.getRequestDispatcher("el.jsp").forward(request, response);
+//        request.getRequestDispatcher("jstl-test.jsp").forward(request, response);
+        request.getRequestDispatcher("jstl.jsp").forward(request, response);
     }
 }
