@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <head>
-    <title>MyApp: ${param.title}</title>
+    <title>Fadlister: ${param.title}</title>
     <%@include file="./stylesheets.html" %>
 </head>
