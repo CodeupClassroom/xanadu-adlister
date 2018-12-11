@@ -8,8 +8,10 @@ import java.io.IOException;
 @WebServlet(name = "ProductIndexServlet", urlPatterns ="/products")
 public class ProductIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Products pdao = DaoFactory.getProductsDao();
+
+        Products pdao = DaoFactory.getProductDao();
         request.setAttribute("products", pdao.findAll());
         request.getRequestDispatcher("product-index.jsp").forward(request, response);
+
     }
 }

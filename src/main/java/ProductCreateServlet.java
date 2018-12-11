@@ -8,16 +8,16 @@ import java.io.IOException;
 @WebServlet(name = "ProductCreateServlet", urlPatterns = "/create-product")
 public class ProductCreateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // save the product
 
-        Products pdao = DaoFactory.getProductsDao();
         Product p = new Product(
-            request.getParameter("name"),
-            Integer.parseInt(request.getParameter("price")),
-            request.getParameter("description")
+                request.getParameter("name"),
+                Integer.parseInt(request.getParameter("price")),
+                request.getParameter("description")
         );
 
+        Products pdao = DaoFactory.getProductDao();
         pdao.save(p);
-
         response.sendRedirect("/products");
 
     }

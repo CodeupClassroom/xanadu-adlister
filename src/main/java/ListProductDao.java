@@ -15,7 +15,7 @@ public class ListProductDao implements Products {
     // save
     public void save(Product p) {
         if (p.getId() == 0) {
-            p.setId(products.size());
+            p.setId(products.size() + 1);
             products.add(p);
         } else {
             int i = 0;
@@ -31,13 +31,11 @@ public class ListProductDao implements Products {
 
     // deleteById
     public void deleteById(long id) {
-        int i = 0;
         for (Product product : products) {
             if (product.getId() == id) {
-                products.remove(i);
+                products.remove(product);
                 break;
             }
-            i++;
         }
     }
 
@@ -63,24 +61,28 @@ public class ListProductDao implements Products {
 //        System.out.println(p1.getName());
 
         // TEST INSERT WITH SAVE
-        Product p2 = new Product("Wii", 400, "A casual experience");
-        pdao.save(p2);
+//        Product p2 = new Product("Wii", 400, "A casual experience");
+//        pdao.save(p2);
 
 //        for (Product p : pdao.products) {
 //            System.out.println(p.getName());
 //        }
 
         // TEST UPDATE WITH SAVE
-        Product productToUpdate = pdao.findOne(3);
-        productToUpdate.setName("Cool Widget");
-        pdao.save(productToUpdate);
+//        Product productToUpdate = pdao.findOne(3);
+//        productToUpdate.setName("Cool Widget");
+//        pdao.save(productToUpdate);
 
 //        for (Product p : pdao.products) {
 //            System.out.println(p.getName());
 //        }
 
         // TEST DELETE AND FINDALL
-        pdao.deleteById(3);
+//        pdao.deleteById(3);
+//
+//        for (Product p : pdao.products) {
+//            System.out.println(p.getName());
+//        }
 
         List<Product> existingProducts = pdao.findAll();
 
