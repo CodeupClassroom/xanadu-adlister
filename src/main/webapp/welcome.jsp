@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <h1>Well howdy, ${billy}</h1>
+    <h1>Well howdy, ${name}</h1>
 
 </body>
 </html>

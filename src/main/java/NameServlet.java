@@ -10,7 +10,7 @@ public class NameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String name1 = request.getParameter("name");
-        request.setAttribute("billy", name1);
+        request.setAttribute("name", name1);
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
 
     }
