@@ -1,3 +1,5 @@
+import products.Product;
+
 import java.nio.file.Path;
 import java.util.List;
 

@@ -9,14 +9,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>All Products</title>
+    <title>All products.Products</title>
 </head>
 <body>
 
-    <h1>Products</h1>
+    <h1>products.Products</h1>
     <c:forEach items="${products}" var="product">
         <div>
-            <h3>Product name: ${product.name}</h3>
+            <h3>products.Product name: ${product.name}</h3>
             <h4>Price: ${product.price}</h4>
             <p>${product.description}</p>
         </div>

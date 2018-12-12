@@ -1,3 +1,9 @@
+package products;
+
+import factory.DaoFactory;
+import products.Product;
+import products.Products;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -5,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ProductCreateServlet", urlPatterns = "/create-product")
+@WebServlet(name = "products.ProductCreateServlet", urlPatterns = "/create-product")
 public class ProductCreateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // save the product

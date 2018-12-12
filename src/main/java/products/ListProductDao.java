@@ -1,3 +1,5 @@
+package products;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +15,12 @@ public class ListProductDao implements Products {
     }
 
     // save
-    public void save(Product p) {
+    @Override
+    public long save(Product p) {
         if (p.getId() == 0) {
             p.setId(products.size() + 1);
             products.add(p);
+            return products.get(products.size() - 1).getId();
         } else {
             int i = 0;
             for (Product product : products) {
@@ -26,10 +30,12 @@ public class ListProductDao implements Products {
                 }
                 i++;
             }
+            return 0;
         }
     }
 
     // deleteById
+    @Override
     public void deleteById(long id) {
         for (Product product : products) {
             if (product.getId() == id) {
@@ -39,8 +45,9 @@ public class ListProductDao implements Products {
         }
     }
 
-    // findOne()
-    public Product findOne(long id) {
+    // findById()
+    @Override
+    public Product findById(long id) {
         for (Product product : products) {
             if (product.getId() == id) {
                 return product;
@@ -50,6 +57,7 @@ public class ListProductDao implements Products {
     }
 
     // findAll()
+    @Override
     public List<Product> findAll() {
         return products;
     }
@@ -57,30 +65,30 @@ public class ListProductDao implements Products {
     public static void main(String[] args) {
         // TEST FIND ONE
         ListProductDao pdao = new ListProductDao();
-//        Product p1 = pdao.findOne(1);
+//        products.Product p1 = pdao.findById(1);
 //        System.out.println(p1.getName());
 
         // TEST INSERT WITH SAVE
-//        Product p2 = new Product("Wii", 400, "A casual experience");
+//        products.Product p2 = new products.Product("Wii", 400, "A casual experience");
 //        pdao.save(p2);
 
-//        for (Product p : pdao.products) {
+//        for (products.Product p : pdao.products) {
 //            System.out.println(p.getName());
 //        }
 
         // TEST UPDATE WITH SAVE
-//        Product productToUpdate = pdao.findOne(3);
+//        products.Product productToUpdate = pdao.findById(3);
 //        productToUpdate.setName("Cool Widget");
 //        pdao.save(productToUpdate);
 
-//        for (Product p : pdao.products) {
+//        for (products.Product p : pdao.products) {
 //            System.out.println(p.getName());
 //        }
 
         // TEST DELETE AND FINDALL
 //        pdao.deleteById(3);
 //
-//        for (Product p : pdao.products) {
+//        for (products.Product p : pdao.products) {
 //            System.out.println(p.getName());
 //        }
 

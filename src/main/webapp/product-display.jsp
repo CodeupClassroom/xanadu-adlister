@@ -15,7 +15,7 @@
 
     <c:choose>
         <c:when test="${product != null}">
-            <h1>Product name: ${product.name}</h1>
+            <h1>products.Product name: ${product.name}</h1>
             <h3>Price: ${product.price}</h3>
             <p>${product.description}</p>
         </c:when>

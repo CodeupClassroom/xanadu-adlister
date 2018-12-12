@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <h1>Product Form</h1>
+    <h1>products.Product Form</h1>
     <form action="/create-product" method="POST">
         <input type="text" name="name" placeholder="Enter product name">
         <br>
