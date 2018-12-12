@@ -7,3 +7,10 @@ INSERT INTO products (name, price, description) VALUES
   ('Widget BB', 200, 'Some widget bb'),
   ('Widget CC', 200, 'Some widget cc'),
   ('Widget DD', 200, 'Some widget dd');
+
+SELECT * FROM products;
+
+
+
+
+UPDATE products SET name = 'Cool Widget' WHERE id = 3
