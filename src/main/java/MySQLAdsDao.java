@@ -1,5 +1,5 @@
-import com.mysql.jdbc.Driver;
-import database.Config;
+import com.mysql.cj.jdbc.Driver;
+
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -7,19 +7,21 @@ import java.util.List;
 
 public class MySQLAdsDao implements Ads {
 
-    private Connection conn;
+    static Connection conn;
 
     public MySQLAdsDao(Config config) {
-        try {
-            DriverManager.registerDriver(new Driver());
-            conn = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUsername(),
-                config.getPassword()
-            );
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        if (conn == null)
+            try {
+                DriverManager.registerDriver(new Driver());
+                conn = DriverManager.getConnection(
+                    config.getUrl(),
+                    config.getUsername(),
+                    config.getPassword()
+                );
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        System.out.println(conn);
     }
 
     @Override
@@ -47,8 +49,8 @@ public class MySQLAdsDao implements Ads {
     public Long insert(Ad ad) {
         long lastInsertedId = 0;
         String insertQuery = String.format(
-                "INSERT INTO ads (id, user_id, title, description) VALUES (%d, %d, '%s', '%s')",
-                ad.getId(),
+                "INSERT INTO ads (user_id, title, description) VALUES (%d, '%s', '%s')",
+
                 ad.getUserId(),
                 ad.getTitle(),
                 ad.getDescription());
@@ -68,6 +70,7 @@ public class MySQLAdsDao implements Ads {
 
     public static void main(String[] args) {
         Ads adao = new MySQLAdsDao(new Config());
+        Ads adao2 = new MySQLAdsDao(new Config());
 
         List<Ad> ads = adao.all();
 
